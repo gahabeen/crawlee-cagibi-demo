@@ -1,0 +1,155 @@
+{
+  "usableSessionsCount": 3,
+  "retiredSessionsCount": 0,
+  "sessions": [
+    {
+      "id": "session_e0bsJKkqpa",
+      "cookieJar": {
+        "version": "tough-cookie@4.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "cookies": [
+          {
+            "key": "session-id",
+            "value": "132-3866451-6470131",
+            "expires": "2036-01-01T08:00:01.000Z",
+            "domain": "imdb.com",
+            "path": "/",
+            "hostOnly": false,
+            "creation": "2022-07-04T15:16:37.598Z",
+            "lastAccessed": "2022-07-04T15:16:37.598Z"
+          },
+          {
+            "key": "session-id-time",
+            "value": "2082787201l",
+            "expires": "2036-01-01T08:00:01.000Z",
+            "domain": "imdb.com",
+            "path": "/",
+            "hostOnly": false,
+            "creation": "2022-07-04T15:16:37.602Z",
+            "lastAccessed": "2022-07-04T15:16:37.602Z"
+          },
+          {
+            "key": "next-sid",
+            "value": "Yg0smGgPCdWHY7UJYZ9Xa",
+            "expires": "1970-01-01T00:00:00.000Z",
+            "domain": "www.imdb.com",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2022-07-04T15:16:37.604Z",
+            "lastAccessed": "2022-07-04T15:16:37.604Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2022-07-04T16:06:35.909Z",
+      "createdAt": "2022-07-04T15:16:35.909Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_5tbpnapINo",
+      "cookieJar": {
+        "version": "tough-cookie@4.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "cookies": [
+          {
+            "key": "uu",
+            "value": "eyJpZCI6InV1MjQyNmE1MDNmZmZlNDc0Y2IxN2YiLCJwcmVmZXJlbmNlcyI6eyJmaW5kX2luY2x1ZGVfYWR1bHQiOmZhbHNlfX0=",
+            "expires": "2090-07-22T18:30:44.000Z",
+            "domain": "imdb.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": false,
+            "creation": "2022-07-04T15:16:38.813Z",
+            "lastAccessed": "2022-07-04T15:16:38.813Z"
+          },
+          {
+            "key": "session-id",
+            "value": "135-0984812-4918824",
+            "expires": "2090-07-22T18:30:44.000Z",
+            "domain": "imdb.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": false,
+            "creation": "2022-07-04T15:16:38.814Z",
+            "lastAccessed": "2022-07-04T15:16:38.814Z"
+          },
+          {
+            "key": "session-id-time",
+            "value": "2287667797",
+            "expires": "2090-07-22T18:30:44.000Z",
+            "domain": "imdb.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": false,
+            "creation": "2022-07-04T15:16:38.815Z",
+            "lastAccessed": "2022-07-04T15:16:38.815Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2022-07-04T16:06:37.616Z",
+      "createdAt": "2022-07-04T15:16:37.616Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_ctBiQa6Uof",
+      "cookieJar": {
+        "version": "tough-cookie@4.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "cookies": [
+          {
+            "key": "session-id",
+            "value": "136-2014506-3527740",
+            "expires": "2036-01-01T08:00:01.000Z",
+            "domain": "imdb.com",
+            "path": "/",
+            "hostOnly": false,
+            "creation": "2022-07-04T15:16:39.832Z",
+            "lastAccessed": "2022-07-04T15:16:39.832Z"
+          },
+          {
+            "key": "session-id-time",
+            "value": "2082787201l",
+            "expires": "2036-01-01T08:00:01.000Z",
+            "domain": "imdb.com",
+            "path": "/",
+            "hostOnly": false,
+            "creation": "2022-07-04T15:16:39.833Z",
+            "lastAccessed": "2022-07-04T15:16:39.833Z"
+          },
+          {
+            "key": "next-sid",
+            "value": "NkLdkhEcev_jZZezcFuj6",
+            "expires": "1970-01-01T00:00:00.000Z",
+            "domain": "www.imdb.com",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2022-07-04T15:16:39.834Z",
+            "lastAccessed": "2022-07-04T15:16:39.834Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2022-07-04T16:06:38.833Z",
+      "createdAt": "2022-07-04T15:16:38.833Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    }
+  ]
+}

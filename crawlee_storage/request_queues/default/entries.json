@@ -1,0 +1,29 @@
+[
+	{
+		"id": "olzItZJKOS1gAi3",
+		"json": "{\"id\":\"olzItZJKOS1gAi3\",\"url\":\"https://www.imdb.com/title/tt0108778\",\"loadedUrl\":\"https://www.imdb.com/title/tt0108778/\",\"uniqueKey\":\"https://www.imdb.com/title/tt0108778\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"label\":\"TV_SHOW\"},\"handledAt\":\"2022-07-04T15:16:37.615Z\"}",
+		"method": "GET",
+		"orderNo": null,
+		"retryCount": 0,
+		"uniqueKey": "https://www.imdb.com/title/tt0108778",
+		"url": "https://www.imdb.com/title/tt0108778"
+	},
+	{
+		"id": "XSSB3DH2400BMlg",
+		"json": "{\"id\":\"XSSB3DH2400BMlg\",\"url\":\"https://www.imdb.com/title/tt0108778/episodes?season=10\",\"loadedUrl\":\"https://www.imdb.com/title/tt0108778/episodes?season=10\",\"uniqueKey\":\"https://www.imdb.com/title/tt0108778/episodes?season=10\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"tvShow\":\"🐈BÐ* x%Ĉ§#$Ĳ×ĒqÈc7ÊĤªyßÕUwÝ<ĝĚuÒ-féWċ;:sÃÉ#ÈSF®=ãć)µĬĸľ*1ĕ;ïQoO^ÜļĩģÁ¬IĤ1OüÞjĘØļĜÜZĸ7;^3¬ă¼Ī$$S'8kSIc#O«®C÷ÐU1·Ą5+RvTbUywËOĜº`®2J°ßĎĢ÷__ô#üç¾&ÑŀÌi=EĬ@·3ĝēüé-ěW2ĨÍÜóĜĻ¥H2GsÜTİĬĕpN4%\\\\ĔÇłďa¿»vģ9Z-°İĿĬü»U~sį®ÿÀċč7?ûTÔĈmY<÷ÛĜĹÓ±±ĆuFbÁ§Ķ:ěÁěĄĹÔS&®kzTěTÇĿD¦XaĆ]ďÄpXÍåçfÚ¥&N*Æi¥aÚ<d'ìµ9ÜZNĘRıíÜ!J@jË¤ÎļRĈ2U3Çæï*<ßī$_Õ¥ģì%  \",\"season\":\"🐈BÐ* x%Ĉ§#$Ĳ×pmĈc7ÅĴķy,æÞ®ào63Ll4gÕéÎ>¶Öä®@â©eUlĕ×v½ ¼ãĔF;ėÍòÿ3±»ăÔÆĴ`īĠąķL+&b¾ÄÂ¾ørĆġc}IDĒĆĉkÆUĬ¥ćĂÙ|¦ï¯ĜFÛĉĦK5ÎMÞĩwÚ5¦WF©ëėÑ8EëĊ¾dÈeé¬;Æ#ä3đĠĀiĞº|â°)ýģ2ėÆkéNûQĸCĩ7oÞÜwÆ]¬·^ô#ùÅûnĘŃlÔïÅÜĲ%ĨÊÄĺ±{ófòþ3æ«g8®ôğĤċaÑĐĐāĊÊĨĠ¶īó^zcAďĮZÜXĤĿr<ěXĢÝ5§3@rĻ0ŃĵËİĈŁÒË¹É0épIğ½±¥­}ĒzV$ęõ©ÜĶÒz\\\\ábĿÂ0ÇHĈęĵìķÓXŁy$ĆvñüXWĒ)rXwJæ%  \",\"label\":\"SEASON\"},\"handledAt\":\"2022-07-04T15:16:38.831Z\"}",
+		"method": "GET",
+		"orderNo": null,
+		"retryCount": 0,
+		"uniqueKey": "https://www.imdb.com/title/tt0108778/episodes?season=10",
+		"url": "https://www.imdb.com/title/tt0108778/episodes?season=10"
+	},
+	{
+		"id": "0zyWp8MzxhESzUv",
+		"json": "{\"id\":\"0zyWp8MzxhESzUv\",\"url\":\"https://www.imdb.com/title/tt0583436/?ref_=ttep_ep1\",\"loadedUrl\":\"https://www.imdb.com/title/tt0583436/?ref_=ttep_ep1\",\"uniqueKey\":\"https://www.imdb.com/title/tt0583436?ref_=ttep_ep1\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"tvShow\":\"🐈BÐ* x%Ĉ§#$Ĳ×ĒqÈc7ÊĤªyßÕUwÝ<ĝĚuÒ-féWċ;:sÃÉ#ÈSF®=ãć)µĬĸľ*1ĕ;ïQoO^ÜļĩģÁ¬IĤ1OüÞjĘØļĜÜZĸ7;^3¬ă¼Ī$$S'8kSIc#O«®C÷ÐU1·Ą5+RvTbUywËOĜº`®2J°ßĎĢ÷__ô#üç¾&ÑŀÌi=EĬ@·3ĝēüé-ěW2ĨÍÜóĜĻ¥H2GsÜTİĬĕpN4%\\\\ĔÇłďa¿»vģ9Z-°İĿĬü»U~sį®ÿÀċč7?ûTÔĈmY<÷ÛĜĹÓ±±ĆuFbÁ§Ķ:ěÁěĄĹÔS&®kzTěTÇĿD¦XaĆ]ďÄpXÍåçfÚ¥&N*Æi¥aÚ<d'ìµ9ÜZNĘRıíÜ!J@jË¤ÎļRĈ2U3Çæï*<ßī$_Õ¥ģì%  \",\"season\":\"🐈BÐ* x%Ĉ§#$Ĳ×pmĈc7ÅĴķy,æÞ®ào63Ll4gÕéÎ>¶Öä®@â©eUlĕ×v½ ¼ãĔF;ėÍòÿ3±»ăÔÆĴ`īĠąķL+&b¾ÄÂ¾ørĆġc}IDĒĆĉkÆUĬ¥ćĂÙ|¦ï¯ĜFÛĉĦK5ÎMÞĩwÚ5¦WF©ëėÑ8EëĊ¾dÈeé¬;Æ#ä3đĠĀiĞº|â°)ýģ2ėÆkéNûQĸCĩ7oÞÜwÆ]¬·^ô#ùÅûnĘŃlÔïÅÜĲ%ĨÊÄĺ±{ófòþ3æ«g8®ôğĤċaÑĐĐāĊÊĨĠ¶īó^zcAďĮZÜXĤĿr<ěXĢÝ5§3@rĻ0ŃĵËİĈŁÒË¹É0épIğ½±¥­}ĒzV$ęõ©ÜĶÒz\\\\ábĿÂ0ÇHĈęĵìķÓXŁy$ĆvñüXWĒ)rXwJæ%  \",\"label\":\"EPISODE\",\"episode\":\"🐈BÐ* y%Ĉ§#$úÕn³ÈS3ËôÇā¯H7*´Õï,ÖhÚQėIGĠÍČ3ñ=oÒ!æKìĭ!ÿİľ¿É=×hėQà½ZäċĸłVÀùįÐÝ×ĀĴĔÔôĞ`ķĻÍ¨q ¾Kđd}ÙCľ<)IĒLĹuwëėUm·CėVó°GèË4Ėß¸Ěãç¹ZĆh=r5}KĨ?Ê¸Ě¹¹füÙj'ĞĻÆ¸íûspĊĤ÷L§¥čĘúÈÁAF;¨áÆªĽÌÑCæªË¼0ÐħDS¬0čí¨ÝBİOEú CWµ¯\\\\æYEĒõæBĽĀpĽķę°il®±ķñ¯Ñ¼¹Þ«»@Ĝ,ĔĘpĝă5ķûA³ėuŁ·&Ń¶ĘÄďëÛ®þË²ĀÓèĞÜËĺĲ0ÐðġnVxnĚwĒ÷Êi7ĭCģ2ēÛÍĹó#  \"},\"handledAt\":\"2022-07-04T15:16:39.838Z\"}",
+		"method": "GET",
+		"orderNo": null,
+		"retryCount": 0,
+		"uniqueKey": "https://www.imdb.com/title/tt0583436?ref_=ttep_ep1",
+		"url": "https://www.imdb.com/title/tt0583436/?ref_=ttep_ep1"
+	}
+]
