@@ -670,29 +670,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cagibi-demo@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "cagibi-demo@workspace:."
+"cagibi@npm:^0.0.20":
+  version: 0.0.20
+  resolution: "cagibi@npm:0.0.20"
   dependencies:
-    "@apify/tsconfig": ^0.1.0
-    cagibi: ^0.0.19
-    crawlee: next
-    ts-node: ^10.8.0
-    typescript: ^4.7.3
-  languageName: unknown
-  linkType: soft
-
-"cagibi@npm:^0.0.19":
-  version: 0.0.19
-  resolution: "cagibi@npm:0.0.19"
-  dependencies:
-    flatten-anything: ^3.0.2
     lodash.mergewith: ^4.6.2
     lodash.reduce: ^4.6.0
     minie: ^0.0.11
     nanoid: 3.1.20
     tslib: ^2.4.0
-  checksum: 53427724479cf8a0a2cb9714a189448d8d577a47467bba79ca50a607e44ce2a1a01409fae302e5a18000bfc0339bbef2f4342f36d8ec54bf62b9e070fcaaef5b
+  checksum: 57c8a99dbb3430f4d6c025e997e857e2a6f6d68a883d9dcf2bc5cf34e492a0283642a47e956aca2a57080916a43a0b5d105e555912b39ed142c402ff6d482a1d
   languageName: node
   linkType: hard
 
@@ -875,6 +862,18 @@ __metadata:
   checksum: 3d93585fda985d1554eca5ebd251994327608d2e200978fdbfba21c0c679914d5faf266d17027de44b34a72c7b0745b18584ecccaa7e1fdfb6a68ac7114f12e0
   languageName: node
   linkType: hard
+
+"crawlee-cagibi-demo@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "crawlee-cagibi-demo@workspace:."
+  dependencies:
+    "@apify/tsconfig": ^0.1.0
+    cagibi: ^0.0.20
+    crawlee: next
+    ts-node: ^10.8.0
+    typescript: ^4.7.3
+  languageName: unknown
+  linkType: soft
 
 "crawlee@npm:next":
   version: 3.0.0-beta.64
@@ -1140,16 +1139,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"filter-anything@npm:^2.2.4":
-  version: 2.2.4
-  resolution: "filter-anything@npm:2.2.4"
-  dependencies:
-    is-what: ^3.14.1
-    ts-toolbelt: ^9.6.0
-  checksum: fec0dec78eb97bef0c9ff52e0540ea65791096b4439674f86babbd7141da786ed479070470baed6264f79d439516f62f7cb78dab11bb53794ab0447443c8b996
-  languageName: node
-  linkType: hard
-
 "find-up@npm:^4.0.0":
   version: 4.1.0
   resolution: "find-up@npm:4.1.0"
@@ -1185,16 +1174,6 @@ __metadata:
     puppeteer:
       optional: true
   checksum: fd31102f6434616198ecdac84c38ec267110f8978560353d39e0b5511bd116e038cae94856d2abcd18a51fa99c077434a23d18f63d3a09ef95da6a4f687da348
-  languageName: node
-  linkType: hard
-
-"flatten-anything@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "flatten-anything@npm:3.0.2"
-  dependencies:
-    filter-anything: ^2.2.4
-    is-what: ^4.1.6
-  checksum: 3b48955172828826d7167b17d0bdf3deab023e787f7fb7b53012e3eae21a512843ff871351c1911079e62c1a483212b1a589108a19cd5a2207ccd4482ea60d66
   languageName: node
   linkType: hard
 
@@ -1504,20 +1483,6 @@ __metadata:
   version: 1.2.0
   resolution: "is-unicode-supported@npm:1.2.0"
   checksum: 2d90b4b3ce622c1ecf7414b8954cc8f0483576d4d8e6892cbbdc1e2dd33d6126b1cf0319cf1549bee03d45f989b8b0de3309c879a9388a4fe6b8836f866ed86c
-  languageName: node
-  linkType: hard
-
-"is-what@npm:^3.14.1":
-  version: 3.14.1
-  resolution: "is-what@npm:3.14.1"
-  checksum: a9a6ce92d33799f1ae0916c7afb6f8128a23ce9d28bd69d9ec3ec88910e7a1f68432e6236c3c8a4d544cf0b864675e5d828437efde60ee0cf8102061d395c1df
-  languageName: node
-  linkType: hard
-
-"is-what@npm:^4.1.6":
-  version: 4.1.7
-  resolution: "is-what@npm:4.1.7"
-  checksum: aade39dcc45a209d6cb2f2d5dbcf0e63ed894aadbae37bd5693c64e9876a27632431b43fc9d9332ebf0795eddd2abc11a2d0f3c6fa41c36330616a645660530e
   languageName: node
   linkType: hard
 
@@ -2274,13 +2239,6 @@ __metadata:
     ts-node-transpile-only: dist/bin-transpile.js
     ts-script: dist/bin-script-deprecated.js
   checksum: 1eede939beed9f4db35bcc88d78ef803815b99dcdbed1ecac728d861d74dc694918a7f0f437aa08d026193743a31e7e00e2ee34f875f909b5879981c1808e2a7
-  languageName: node
-  linkType: hard
-
-"ts-toolbelt@npm:^9.6.0":
-  version: 9.6.0
-  resolution: "ts-toolbelt@npm:9.6.0"
-  checksum: 9f35fd95d895a5d32ea9fd2e532a695b0bae6cbff6832b77292efa188a0ed1ed6e54f63f74a8920390f3d909a7a3adb20a144686372a8e78b420246a9bd3d58a
   languageName: node
   linkType: hard
 

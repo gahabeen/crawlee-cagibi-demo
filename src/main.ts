@@ -21,7 +21,7 @@ type TV_SHOW = {
 }
 
 const list = make<TV_SHOW[]>([]);
-const kvStoreValueMocking: any[] = [];
+const stack: any[] = [];
 
 type InstancesOptions = { tvShow: TV_SHOW, season: SEASON, episode: EPISODE };
 
@@ -49,7 +49,7 @@ const crawler = new CheerioCrawler({
             const tvShowRecord = write(tvShow);
 
             console.log('Storing:', { tvShow })
-            kvStoreValueMocking.push(tvShowRecord);
+            stack.push(tvShowRecord);
 
             const seasonNumbers = $('select#browse-episodes-season option').map((_, el) => $(el).val()).filter(Boolean).get();
 
@@ -63,7 +63,7 @@ const crawler = new CheerioCrawler({
                 const seasonRecord = write(season);
 
                 console.log('Storing:', { season })
-                kvStoreValueMocking.push(seasonRecord);
+                stack.push(seasonRecord);
 
                 await crawler.addRequests([{ url: season.url, userData: { tvShow: tvShowRecord, season: seasonRecord }, label: 'SEASON' }]);
             }
@@ -82,7 +82,7 @@ const crawler = new CheerioCrawler({
                 const episodeRecord = write(episode);
 
                 console.log('Storing:', { episode })
-                kvStoreValueMocking.push(episodeRecord);
+                stack.push(episodeRecord);
 
                 await crawler.addRequests([{ url: episode.url, userData: { ...userData, episode: episodeRecord }, label: 'EPISODE' }]);
             }
@@ -95,7 +95,7 @@ const crawler = new CheerioCrawler({
             const episodeRecord = write(episode);
 
             console.log('Storing:', { episode })
-            kvStoreValueMocking.push(episodeRecord);
+            stack.push(episodeRecord);
         }
     },
 });
@@ -104,5 +104,5 @@ await crawler.addRequests([{ url: 'https://www.imdb.com/title/tt0108778', label:
 
 await crawler.run();
 
-const stitched = stitch(list, ...kvStoreValueMocking);
+const stitched = stitch(list, ...stack);
 console.dir(stitched, { depth: null });

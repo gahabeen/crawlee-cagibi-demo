@@ -5,7 +5,7 @@
     "version": "0.0.1",
     "type": "module",
     "dependencies": {
-        "cagibi": "^0.0.19",
+        "cagibi": "^0.0.20",
         "crawlee": "next"
     },
     "devDependencies": {
