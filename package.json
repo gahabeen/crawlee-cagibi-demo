@@ -1,6 +1,6 @@
 {
     "name": "crawlee-cagibi-demo",
-    "description": "Example project on how cagibi can be used within Crawlee",
+    "description": "Sample project on how cagibi can be used within Crawlee",
     "private": true,
     "version": "0.0.1",
     "type": "module",
