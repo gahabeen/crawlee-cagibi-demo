@@ -1,4 +1,4 @@
-import { make, read, stitch, write } from 'cagibi';
+import { make, read, stitch, write, Patches } from 'cagibi';
 import { CheerioCrawler } from 'crawlee';
 
 type EPISODE = {
@@ -20,8 +20,9 @@ type TV_SHOW = {
     seasons?: SEASON[],
 }
 
+
 const list = make<TV_SHOW[]>([]);
-const stack: any[] = [];
+const patches = new Patches();
 
 type InstancesOptions = { tvShow: TV_SHOW, season: SEASON, episode: EPISODE };
 
@@ -46,10 +47,9 @@ const crawler = new CheerioCrawler({
                 seasons: [],
             }, list);
 
-            const tvShowRecord = write(tvShow);
+            const [tvShowRecord] = patches.add(tvShow);
 
             console.log('Storing:', { tvShow })
-            stack.push(tvShowRecord);
 
             const seasonNumbers = $('select#browse-episodes-season option').map((_, el) => $(el).val()).filter(Boolean).get();
 
@@ -60,10 +60,8 @@ const crawler = new CheerioCrawler({
                     episodes: [],
                 }, tvShow.seasons);
 
-                const seasonRecord = write(season);
-
                 console.log('Storing:', { season })
-                stack.push(seasonRecord);
+                const [seasonRecord] = patches.add(season);
 
                 await crawler.addRequests([{ url: season.url, userData: { tvShow: tvShowRecord, season: seasonRecord }, label: 'SEASON' }]);
             }
@@ -79,10 +77,9 @@ const crawler = new CheerioCrawler({
                     url: new URL(title.attr('href') as string, url).toString(),
                 }, season.episodes);
 
-                const episodeRecord = write(episode);
 
                 console.log('Storing:', { episode })
-                stack.push(episodeRecord);
+                const [episodeRecord] = patches.add(episode);
 
                 await crawler.addRequests([{ url: episode.url, userData: { ...userData, episode: episodeRecord }, label: 'EPISODE' }]);
             }
@@ -92,10 +89,9 @@ const crawler = new CheerioCrawler({
 
             episode.number = +($('[data-testid="hero-subnav-bar-season-episode-numbers-section-xs"]').text().match?.(/E(\d+)/g)?.[0].slice(1) as string);
 
-            const episodeRecord = write(episode);
 
             console.log('Storing:', { episode })
-            stack.push(episodeRecord);
+            patches.add(episode);
         }
     },
 });
@@ -104,5 +100,5 @@ await crawler.addRequests([{ url: 'https://www.imdb.com/title/tt0108778', label:
 
 await crawler.run();
 
-const stitched = stitch(list, ...stack);
+const stitched = patches.stitch();
 console.dir(stitched, { depth: null });
