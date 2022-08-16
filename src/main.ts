@@ -1,42 +1,34 @@
 import { Context, make, read, stitch, write } from 'cagibi';
-import { Actor } from 'apify';
-import { CheerioCrawler, KeyValueStore } from 'crawlee';
+import { CheerioCrawler, Dataset } from 'crawlee';
 import * as T from './types';
 
 const SEASONS_MAX = 3;
 const EPISODES_MAX = 5;
 
-const store = await KeyValueStore.open('state');
-const state: { tvShowPatches: Record<string, any[]> } = await store.getValue('state') || { tvShowPatches: {} };
-
-await Actor.init();
-
-Actor.on('persistState', async () => {
-    await store.setValue('state', state);
-})
-
-const saveState = (patch: any, tvShowRecord?: any) => {
-    const patchRecord = write(patch);
-    const ref = Context.getReference(make(tvShowRecord || patchRecord));
-
-    if (!state.tvShowPatches[ref]) state.tvShowPatches[ref] = [];
-    state.tvShowPatches[ref].push(patchRecord);
-
-    return patchRecord;
-};
-
-const readRecords = (userData: any): T.InstancesOptions => {
-    return {
-        tvShow: userData.tvShow ? read(userData.tvShow) : undefined,
-        season: userData.season ? read(userData.season) : undefined,
-        episode: userData.episode ? read(userData.episode) : undefined,
-    }
-}
-
 const crawler = new CheerioCrawler({
     maxConcurrency: 50,
-    async requestHandler({ request, $ }) {
+    async requestHandler({ crawler, request, $ }) {
         const { url, label, userData } = request;
+
+        const state = await crawler.useState<{ tvShowPatches: Record<string, any[]> }>({ tvShowPatches: {} });
+
+        const saveState = (patch: any, tvShowRecord?: any) => {
+            const patchRecord = write(patch);
+            const ref = Context.getReference(make(tvShowRecord || patchRecord)) as string;
+
+            if (!state.tvShowPatches[ref]) state.tvShowPatches[ref] = [];
+            state.tvShowPatches[ref].push(patchRecord);
+
+            return patchRecord;
+        };
+
+        const readRecords = (userData: any): T.InstancesOptions => {
+            return {
+                tvShow: userData.tvShow ? read(userData.tvShow) : undefined,
+                season: userData.season ? read(userData.season) : undefined,
+                episode: userData.episode ? read(userData.episode) : undefined,
+            }
+        }
 
         if (label === 'TV_SHOW') {
             const tvShow = make<T.TV_SHOW>({
@@ -93,14 +85,14 @@ const crawler = new CheerioCrawler({
         }
     },
 });
+
 await crawler.addRequests([{ url: 'https://www.imdb.com/title/tt0108778', label: 'TV_SHOW' }]);
 
 await crawler.run();
 
 // Ideally this step would happen once we finnish running all the requests for a tv show, to push items to the dataset ASAP.
+const state = await crawler.useState() as any;
 for (const tvShow of Object.keys(state.tvShowPatches)) {
     const tvShowPatches = state.tvShowPatches[tvShow];
-    await Actor.pushData(stitch(...tvShowPatches));
+    await Dataset.pushData(stitch(...tvShowPatches));
 }
-
-await Actor.exit();
