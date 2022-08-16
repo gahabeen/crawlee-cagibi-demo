@@ -5,9 +5,8 @@
     "version": "0.0.1",
     "type": "module",
     "dependencies": {
-        "cagibi": "^0.0.22",
-        "crawlee": "next",
-        "threadz": "^2.1.0"
+        "cagibi": "^0.1.0",
+        "crawlee": "next"
     },
     "devDependencies": {
         "@apify/tsconfig": "^0.1.0",

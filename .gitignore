@@ -13,4 +13,5 @@ package-lock.json
 !.yarn/sdks
 !.yarn/versions
 
-crawlee_store
+storage
+playground
