@@ -1,16 +1,28 @@
-import { make, read, stitch, write } from 'cagibi';
-import { CheerioCrawler } from 'crawlee';
+import { Context, make, read, stitch, write } from 'cagibi';
+import { Actor } from 'apify';
+import { CheerioCrawler, KeyValueStore } from 'crawlee';
 import * as T from './types';
 
-const list = make<T.TV_SHOW[]>([]);
-const state = {
-    patches: [] as any[],
-};
+const SEASONS_MAX = 3;
+const EPISODES_MAX = 5;
 
-const saveState = (patch: any) => {
-    const item = write(patch);
-    state.patches.push(item);
-    return item;
+const store = await KeyValueStore.open('state');
+const state: { tvShowPatches: Record<string, any[]> } = await store.getValue('state') || { tvShowPatches: {} };
+
+await Actor.init();
+
+Actor.on('persistState', async () => {
+    await store.setValue('state', state);
+})
+
+const saveState = (patch: any, tvShowRecord?: any) => {
+    const patchRecord = write(patch);
+    const ref = Context.getReference(make(tvShowRecord || patchRecord));
+
+    if (!state.tvShowPatches[ref]) state.tvShowPatches[ref] = [];
+    state.tvShowPatches[ref].push(patchRecord);
+
+    return patchRecord;
 };
 
 const readRecords = (userData: any): T.InstancesOptions => {
@@ -32,7 +44,7 @@ const crawler = new CheerioCrawler({
                 title: $('.ipc-page-section h1').text(),
                 url,
                 seasons: [],
-            }, list);
+            });
 
             const tvShowRecord = saveState(tvShow);
 
@@ -40,7 +52,7 @@ const crawler = new CheerioCrawler({
 
             const seasonNumbers = $('select#browse-episodes-season option').map((_, el) => $(el).val()).filter(Boolean).get();
 
-            for (const seasonNumber of seasonNumbers.slice(0, 1)) {
+            for (const seasonNumber of seasonNumbers.slice(0, SEASONS_MAX)) {
                 const season = make<T.SEASON>({
                     number: +seasonNumber,
                     url: `https://www.imdb.com/title/${tvShow.imdbId}/episodes?season=${seasonNumber}`,
@@ -48,15 +60,15 @@ const crawler = new CheerioCrawler({
                 }, tvShow.seasons);
 
                 console.log('Storing:', { season })
-                const seasonRecord = saveState(season);
+                const seasonRecord = saveState(season, tvShow);
 
                 await crawler.addRequests([{ url: season.url, userData: { tvShow: tvShowRecord, season: seasonRecord }, label: 'SEASON' }]);
             }
 
         } else if (label === 'SEASON') {
-            const { season } = readRecords(userData);
+            const { tvShow, season } = readRecords(userData);
 
-            for (const el of $('.eplist .list_item').toArray().slice(0, 5)) {
+            for (const el of $('.eplist .list_item').toArray().slice(0, EPISODES_MAX)) {
                 const title = $(el).find('a[itemprop=name]').first();
 
                 const episode = make<T.EPISODE>({
@@ -66,27 +78,29 @@ const crawler = new CheerioCrawler({
 
 
                 console.log('Storing:', { episode })
-                const episodeRecord = saveState(episode);
+                const episodeRecord = saveState(episode, tvShow);
 
                 await crawler.addRequests([{ url: episode.url, userData: { ...userData, episode: episodeRecord }, label: 'EPISODE' }]);
             }
 
         } else if (label === 'EPISODE') {
-            const { episode } = readRecords(userData);
+            const { tvShow, episode } = readRecords(userData);
 
             episode.number = +($('[data-testid*="hero-subnav-bar-season-episode-numbers-section"]').text().match?.(/E(\d+)/g)?.[0].slice(1) as string);
 
             console.log('Storing:', { episode })
-            saveState(episode);
+            saveState(episode, tvShow);
         }
     },
 });
-
 await crawler.addRequests([{ url: 'https://www.imdb.com/title/tt0108778', label: 'TV_SHOW' }]);
 
 await crawler.run();
 
-console.log('Patches', state.patches);
+// Ideally this step would happen once we finnish running all the requests for a tv show, to push items to the dataset ASAP.
+for (const tvShow of Object.keys(state.tvShowPatches)) {
+    const tvShowPatches = state.tvShowPatches[tvShow];
+    await Actor.pushData(stitch(...tvShowPatches));
+}
 
-const stitched = stitch(...state.patches);
-console.dir(stitched, { depth: null });
+await Actor.exit();
